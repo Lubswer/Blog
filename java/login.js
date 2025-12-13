@@ -35,7 +35,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     Swal.fire({
     icon: 'success',
     title: '¡login exitoso!',
-    text: 'Login Exitoso',
+
     timer: 1000,
     showConfirmButton: false,
 }).then(() => {
@@ -54,3 +54,4 @@ document.getElementById("togglePass").addEventListener("click", function () {
     }
 
 });
+
