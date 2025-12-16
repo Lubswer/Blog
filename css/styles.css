@@ -17,7 +17,7 @@ body {
     background: #000000
 }
 .navbar_container{
-  position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:0px 40px;background:rgba(20,32,43,0.35);backdrop-filter:blur(4px);z-index:4;
+  position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:0px 40px;background:rgba(31, 32, 32, 0.35);backdrop-filter:blur(4px);z-index:4;
 }
 .navbar_logo{
     color:#fff;
@@ -51,10 +51,11 @@ body {
 }
 .hero{
   width:100%;
-  min-height:70vh;
+  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align: column;
   background-image: linear-gradient(-20deg, rgba(36, 59, 55, 0.068) 20%, rgba(27, 27, 25, 0.75)), url("../images/descarga.gif");
   background-repeat:no-repeat;
   background-size:cover;
@@ -63,11 +64,23 @@ body {
   z-index:1;
   padding-top:70px; 
 }
+.f{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+    border-bottom: 1px solid #ffffff;
+
+}
+
 .hero-inner{ 
     text-align:center; 
     max-width:980px; 
     padding:24px; 
-    color:#fff 
+    color:#fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 @font-face {
     font-family: "MyFont";
@@ -130,21 +143,50 @@ body {
 }
 /* About */
 .section {
-    padding: 56px 18px;
+    margin-top: -300px;
+    padding: none;
     color: #ffffff;
 }
 .container {
-    max-width: 1100px;
+
     margin: 0 auto;
     color: #ffffff;
 }
+.fondo {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* ocupa toda la pantalla */
+    background-image: url("../images/fondo.gif");
+    background-size: cover;        /* NO se repite */
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 200px;
+}
+
+/* Capa para color + blur + saturación */
+.fondo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 15, 15, 0.541); /* COLOR */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
+}
+
 .about {
+    margin-top: 200px;
     display: grid;
     grid-template-columns: 1fr 360px;
     gap: 30px;
+    width: 100%;
     align-items: center;
     text-align: center;
     color: #f8f8f8;
+   
 }
 .about h2 {
     color: floralwhite;
@@ -163,14 +205,32 @@ body {
     border: 1px solid rgba(229, 235, 240, 0.815);
     padding: 10px 18px;
     border-radius: 40px;
+    transition: 1s;
+    
 }
-
+.cta :hover{
+    background:rgba(19, 18, 18, 0); 
+    color:#181515; 
+    border: none;
+    box-shadow: 0 0 40px #faf8f8;
+    transition-duration: 1s;
+    background: rgba(247, 246, 246, 0.658); /* COLOR */
+    background-image: url("../images/imgBTN.gif") ;
+    background-size: contain;        /* NO se repite */
+    background-position: left;
+    background-repeat: no-repeat;
+    font-size: 25px;
+    align-items: left;
+    padding: 5px 50px;
+    transition: 1s;
+  
+}
 
 .avatar {
     background: #16161669;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 1px 1px 32px rgb(0, 0, 0) ;
+    box-shadow: 1px 1px 92px rgb(209, 210, 221) ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,10 +241,22 @@ body {
     height: auto
 }
 .section{
-    background-color: #14202b3b;
-    backdrop-filter: blur(70px);
-    border-bottom: 1px solid #aaaaaac2;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    backdrop-filter: blur(1px);
+
 }
+.section2{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(1px);
+}
+
 /* Projects */
 .projects {
     background: #16161669;
@@ -192,12 +264,15 @@ body {
     padding: 28px;
     border-radius: 26px;
     border: 1px solid #4444445d;
-        box-shadow: 1px 1px 32px rgb(0, 0, 0) ;
+    box-shadow: 1px 1px 32px rgb(0, 0, 0) ;
+    
 }
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px
+    display: flex;
+    gap: 24px;
+    justify-content: center;    
+    flex-wrap: wrap;
+
 }
 .card {
     background: #16161669;
@@ -235,7 +310,12 @@ body {
     color: #f8f8f8;
     padding: 20px 20px;
     height: 30%;
-    background-color: rgba(0, 0, 0, 0.863);
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(1px);
+    margin-top: -460px;
+    padding: none;
+    display: flex;
+
 }
 .contact img{
     width: 100%;
@@ -262,6 +342,12 @@ body {
     gap: 18px;
     text-align: center;
 }
+.contact-grid p {
+    box-shadow: 1px 1px 92px rgb(209, 210, 221) ;
+    border-radius: 70px;
+    width: 300px;
+
+}
 .contact-grid h3 {
     font-family: "MyFont", sans-serif;
     font-size: 48px;
@@ -283,6 +369,13 @@ body {
     transition: 0.8s;
     
 }
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
 
 .boton-social:hover {
     background-color: white;
@@ -302,13 +395,14 @@ body {
     justify-content: center;
     background: rgba(255, 255, 255, 0);
     color: #fff;
-    text-decoration: none
+    text-decoration: none;
 }
 
 .fin {
  display: flex;
  align-items: center;
  justify-content: center;
+ background-color: #8a1414;
 }
 #menu-toggle {
     position: absolute;
